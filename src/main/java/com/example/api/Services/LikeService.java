@@ -1,0 +1,1 @@
+package com.example.api.Services;/*import com.example.api..DTO.LikeRequestDto;import com.example.api.DTO.LikeRequestDto;import com.example.api.DTO.LikesResponse;import com.example.api.Entity.Likes;import java.util.List;public interface LikeService {    LikesResponse likeOrUnlikePost(LikeRequestDto likeRequestDto);}*/
