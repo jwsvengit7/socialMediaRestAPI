@@ -34,7 +34,7 @@ public class UserController {
     }
     @PostMapping("/create")
     public ResponseEntity<Object> allsave(@RequestBody UserDTO userDTO) {
-        User user = userImpl.saves(userDTO);
+        UserDTO user = userImpl.saves(userDTO);
         if(user!=null)
             return new ResponseEntity<>(user, HttpStatus.CREATED);
         else
@@ -44,7 +44,7 @@ public class UserController {
     }
     @PostMapping("/login")
     public ResponseEntity<Object> login(@RequestBody LoginDTO loginDTO){
-        User user = userImpl.Login(loginDTO);
+        UserDTO user = userImpl.Login(loginDTO);
         if(user!=null)
             return new ResponseEntity<>(user, HttpStatus.OK);
         else

@@ -12,6 +12,7 @@ import com.example.api.Services.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +24,7 @@ import java.util.Optional;
 public class UserServiceImplementation implements UserService {
     private final UserRepository userRepository;
     private final HttpServletRequest request;
+    private final ModelMapper modelMapper;
     @Override
 
     public Optional<User> getByUserId(Long userid)
@@ -34,7 +36,7 @@ public class UserServiceImplementation implements UserService {
         return userRepository.findAll();
     }
     @Override
-    public User saves(UserDTO userDTO) {
+    public UserDTO saves(UserDTO userDTO) {
         userRepository.findUserByEmail(userDTO.getEmail()).ifPresent(user -> {
                     throw new EmailAddressAlreadyExistException(userDTO.getEmail());
                 });
@@ -43,16 +45,16 @@ public class UserServiceImplementation implements UserService {
                     user.setEmail(userDTO.getEmail());
                     user.setPassword(userDTO.getPassword());
                     user.setRoles(Roles.USER);
-            return userRepository.save(user);
+            return modelMapper.map(userRepository.save(user),UserDTO.class);
     }
 
     @Override
-    public User Login(LoginDTO loginDTO) throws EmailAddressAlreadyExistException {
+    public UserDTO Login(LoginDTO loginDTO) throws EmailAddressAlreadyExistException {
         User user = userRepository.findUserByEmailAndPassword(loginDTO.getEmail(), loginDTO.getPassword());
         if (user!=null) {
             HttpSession session = request.getSession();
             session.setAttribute("userDTO", user);
-            return user;
+            return modelMapper.map(user,UserDTO.class);
         } else {
             throw new LoginExceptionMessages("Invalid email or password");
         }
