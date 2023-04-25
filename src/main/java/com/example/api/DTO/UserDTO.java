@@ -1,1 +1,1 @@
-package com.example.api.DTO;import lombok.Data;import lombok.RequiredArgsConstructor;@Data@RequiredArgsConstructorpublic class UserDTO {    private Long id;    private String name;    private String email;    private String password;}
+package com.example.api.DTO;import com.example.api.Enums.Roles;import lombok.Data;import lombok.RequiredArgsConstructor;@Data@RequiredArgsConstructorpublic class UserDTO {    private Long id;    private String name;    private String email;    private String password;    private Roles roles;}

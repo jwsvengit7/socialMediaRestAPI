@@ -1,0 +1,1 @@
+package com.example.api.Exceptions;import lombok.Data;@Datapublic class CommentExceptionBound extends RuntimeException{    public CommentExceptionBound(String message){        super(message);    }}

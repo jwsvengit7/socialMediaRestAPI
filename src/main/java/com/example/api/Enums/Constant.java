@@ -1,0 +1,1 @@
+package com.example.api.Enums;public enum Constant {    USER,    ADMIN}

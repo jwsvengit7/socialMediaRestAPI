@@ -1,0 +1,1 @@
+package com.example.api.Exceptions;import lombok.Data;@Datapublic class LoginExceptionMessages extends RuntimeException{    public LoginExceptionMessages(String message){        super(message);    }}

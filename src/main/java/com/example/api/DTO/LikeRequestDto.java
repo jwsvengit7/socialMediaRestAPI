@@ -1,1 +1,1 @@
-package com.example.api.DTO;import lombok.AllArgsConstructor;import lombok.Builder;import lombok.Data;@Data@Builder@AllArgsConstructorpublic class LikeRequestDto {    private Long postId;    private Long visitorId;}
+package com.example.api.DTO;import com.example.api.Entity.Post;import com.example.api.Entity.User;import lombok.AllArgsConstructor;import lombok.Builder;import lombok.Data;@Data@Builder@AllArgsConstructorpublic class LikeRequestDto {    private Boolean likes;    private User user;    private Post post;}

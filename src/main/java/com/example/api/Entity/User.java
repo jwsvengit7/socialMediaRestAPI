@@ -1,5 +1,6 @@
 package com.example.api.Entity;
 
+import com.example.api.Enums.Roles;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
@@ -20,6 +21,8 @@ public class User {
 
     private String email;
     private String password;
+    @Enumerated(EnumType.STRING)
+    private Roles roles;
 
     @OneToMany(mappedBy = "users", fetch = FetchType.LAZY)
     private List<Comment> comments;

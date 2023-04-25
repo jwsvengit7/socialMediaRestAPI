@@ -1,0 +1,1 @@
+package com.example.api.Services;import com.example.api.DTO.CommentDTO;import com.example.api.Entity.Comment;import jakarta.servlet.http.HttpSession;public interface CommentService {    CommentDTO commentCreated(CommentDTO commentDTO, Long id, HttpSession session);    Comment deleteComment(Long id);}
