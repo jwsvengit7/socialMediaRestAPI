@@ -1,0 +1,1 @@
+package com.example.api.Enums;public enum Role {    USER,    ADMIN}

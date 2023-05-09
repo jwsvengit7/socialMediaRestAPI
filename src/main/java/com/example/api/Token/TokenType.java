@@ -1,0 +1,1 @@
+package com.example.api.Token;public enum TokenType {  BEARER}
